@@ -97,7 +97,7 @@ pipeline {
                                 ./release_notes.sh check manifests/${RELEASE_VERSION}/opensearch-${RELEASE_VERSION}.yml manifests/${RELEASE_VERSION}/opensearch-dashboards-${RELEASE_VERSION}.yml --date ${GIT_LOG_DATE} --output table.md
                                 echo "Adding Comment on issue $GIT_ISSUE_NUMBER"
                                 gh repo clone https://github.com/opensearch-project/opensearch-build.git; cd opensearch-build
-                                gh issue comment ${GIT_ISSUE_NUMBER} --body-file ../table.md --repo opensearch-project/opensearch-build
+                                gh issue comment ${GIT_ISSUE_NUMBER} --body-file ../table.md --repo shreyah963/opensearch-build
                             """
                         }
                         if (params.COMMENT == "UPDATE") {
