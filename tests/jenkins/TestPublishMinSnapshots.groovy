@@ -96,7 +96,7 @@ class TestPublishMinSnapshots extends BuildPipelineTest {
         // tests/jenkins/jenkinsjob-regression-files/opensearch/publish-min-snapshots.jenkinsfile.txt
         // which is not easy for ./manifests.sh update to process automatically
         // We can add more assertion to increase test coverage later on
-        runScript('jenkins/opensearch/publish-min-snapshots.jenkinsfile')
+        runScript('jenkins/opensearch/publish-min-snapshots-lf.jenkinsfile')
         assertThat(getCommands('sh', 'tar'), hasItem('./build.sh manifests/3.0.0/opensearch-3.0.0.yml -d tar --component OpenSearch -p linux -a x64 --snapshot'))
         assertThat(getCommands('sh', 'tar'), hasItem('./build.sh manifests/3.0.0/opensearch-3.0.0.yml -d tar --component OpenSearch -p linux -a arm64 --snapshot'))
         assertThat(getCommands('sh', 'windows'), hasItem('./build.sh manifests/3.0.0/opensearch-3.0.0.yml -d zip --component OpenSearch -p windows -a x64 --snapshot'))
